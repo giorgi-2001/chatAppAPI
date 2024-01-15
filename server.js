@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const userRoutes = require('./routes/userRoutes')
 const chatRoutes = require('./routes/chatRoutes')
 const messageRoutes = require('./routes/messageRoutes')
+const corsOptions = require('./config/corsOptions')
 const { Server } = require('socket.io')
  
 const app = express()
@@ -33,7 +34,7 @@ const server = app.listen(port, console.log(`Server started on port - ${port}, c
 const io = new Server(server, {
     pingTimeout: 60000,
     cors: {
-        origin: 'http://localhost:5173'
+        origin: 'https://supachattery.onrender.com'
     }
 })
 
